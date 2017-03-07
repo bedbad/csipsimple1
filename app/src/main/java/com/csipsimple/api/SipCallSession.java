@@ -28,6 +28,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 
+import org.pjsip.pjsua.zrtp_state_info;
+
 /**
  * Represents state of a call session<br/>
  * This class helps to serialize/deserialize the state of the media layer <br/>
@@ -232,6 +234,14 @@ public class SipCallSession implements Parcelable {
     protected boolean isRecording = false;
     protected boolean zrtpSASVerified = false;
     protected boolean hasZrtp = false;
+
+
+    //---------------------------------------------------------------------------------------------
+    /*!!IA!!
+    cipher variable
+    */
+    public String zrtpcipher;
+    //---------------------------------------------------------------------------------------------
 
     /**
      * Construct from parcelable <br/>
@@ -594,6 +604,27 @@ public class SipCallSession implements Parcelable {
     public boolean getHasZrtp() {
         return hasZrtp;
     }
+
+    //---------------------------------------------------------------------------------------------
+    /*!!IA!!
+     *
+     * Here we're implementing saver and getter for zrtp cipher, which we ultimately
+     * get from native zrtp method zrtp_state_info_cipher_get()
+     * we are not actually setting cipher on the native level anywhere
+     */
+
+    public boolean saveZrtpCipher(zrtp_state_info zrtpInfo){
+        zrtpcipher = zrtpInfo.getCipher().getPtr();
+        //add checks if needed
+        return getHasZrtp();
+    }
+
+    public String getZrtpCipher(){
+        return zrtpcipher;
+    }
+
+    //---------------------------------------------------------------------------------------------
+
 
     /**
      * Get the start time of the call.

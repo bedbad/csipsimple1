@@ -99,6 +99,12 @@ public final class PjSipCalls {
             session.setMediaSecureInfo(secureInfo);
             session.setMediaSecure(!TextUtils.isEmpty(secureInfo));
             zrtp_state_info zrtpInfo = pjsua.jzrtp_getInfoFromCall(session.getCallId());
+            //---------------------------------------------------------------------------------------------
+            /* !!IA!!
+            * here is where we get the input of ciphers
+            */
+            session.saveZrtpCipher(zrtpInfo);
+            //---------------------------------------------------------------------------------------------
             session.setZrtpSASVerified(zrtpInfo.getSas_verified() == pjsuaConstants.PJ_TRUE);
             session.setHasZrtp(zrtpInfo.getSecure() == pjsuaConstants.PJ_TRUE);
 

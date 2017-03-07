@@ -47,7 +47,7 @@ public class Log {
 	 */
 	public static void v(String tag, String msg) {
 		if(logLevel >= 5) {
-			android.util.Log.v(tag, msg);
+			android.util.Log.v("SIP "+tag, msg);
 		}
 	}
 
@@ -59,7 +59,7 @@ public class Log {
 	 */
 	public static void v(String tag, String msg, Throwable tr) {
 		if(logLevel >= 5) {
-			android.util.Log.v(tag, msg, tr);
+			android.util.Log.v("SIP "+tag, msg, tr);
 		}
 	}
 	
@@ -70,7 +70,7 @@ public class Log {
 	 */
 	public static void d(String tag, String msg) {
 		if(logLevel >= 4) {
-			android.util.Log.d(tag, msg);
+			android.util.Log.d("SIP "+tag, msg);
 		}
 	}
 
@@ -82,7 +82,7 @@ public class Log {
 	 */
 	public static void d(String tag, String msg, Throwable tr) {
 		if(logLevel >= 4) {
-			android.util.Log.d(tag, msg, tr);
+			android.util.Log.d("SIP "+tag, msg, tr);
 		}
 	}
 	
@@ -93,7 +93,7 @@ public class Log {
 	 */
 	public static void i(String tag, String msg) {
 		if(logLevel >= 3) {
-			android.util.Log.i(tag, msg);
+			android.util.Log.i("SIP "+tag, msg);
 		}
 	}
 
@@ -105,7 +105,7 @@ public class Log {
 	 */
 	static void i(String tag, String msg, Throwable tr) {
 		if(logLevel >= 3) {
-			android.util.Log.i(tag, msg, tr);
+			android.util.Log.i("SIP "+tag, msg, tr);
 		}
 	}
 
@@ -116,7 +116,7 @@ public class Log {
 	 */
 	public static void w(String tag, String msg) {
 		if(logLevel >= 2) {
-			android.util.Log.w(tag, msg);
+			android.util.Log.w("SIP"+tag, msg);
 		}
 	}
 
@@ -128,7 +128,7 @@ public class Log {
 	 */
 	public static void w(String tag, String msg, Throwable tr) {
 		if(logLevel >= 2) {
-			android.util.Log.w(tag, msg, tr);
+			android.util.Log.w("SIP "+tag, msg, tr);
 		}
 	}
 
@@ -139,7 +139,7 @@ public class Log {
 	 */
 	public static void e(String tag, String msg) {
 		if(logLevel >= 1) {
-			android.util.Log.e(tag, msg);
+			android.util.Log.e("SIP "+tag, msg);
 		}
 	}
 
@@ -151,7 +151,7 @@ public class Log {
 	 */
 	public static void e(String tag, String msg, Throwable tr) {
 		if(logLevel >= 1) {
-			android.util.Log.e(tag, msg, tr);
+			android.util.Log.e("SIP "+tag, msg, tr);
 		}
 	}
 	

@@ -93,7 +93,7 @@ public class SipService extends Service {
 
 	
 	// static boolean creating = false;
-	private static final String THIS_FILE = "SIP SRV";
+	private static final String THIS_FILE = "SIP";
 
 	private SipWakeLock sipWakeLock;
 	private boolean autoAcceptCurrent = false;
@@ -242,7 +242,7 @@ public class SipService extends Service {
             SipService.this.enforceCallingOrSelfPermission(SipManager.PERMISSION_USE_SIP, null);
             //We have to ensure service is properly started and not just binded
             SipService.this.startService(new Intent(SipService.this, SipService.class));
-            
+
             if(pjService == null) {
                 Log.e(THIS_FILE, "Can't place call if service not started");
                 // TODO - we should return a failing status here
@@ -256,10 +256,15 @@ public class SipService extends Service {
                     if(!CustomDistribution.forceNoMultipleCalls()) {
                         notifyUserOfMessage(R.string.not_configured_multiple_calls);
                     }
+                    //---------------------------------------------------------------------------------------------
+                    /*!!IA!!
+                     * Do someting with the cipher of the new call, stored in session. here, for example, log
+                     */
+                    Log.e(THIS_FILE, "ZRTP Cipher of the new(outgoing) call"+activeCall.getZrtpCipher());
+                    //---------------------------------------------------------------------------------------------
                     return;
                 }
             }
-            
             Intent intent = new Intent(SipManager.ACTION_SIP_CALL_LAUNCH);
             intent.putExtra(SipProfile.FIELD_ID, accountId);
             intent.putExtra(SipManager.EXTRA_SIP_CALL_TARGET, callee);

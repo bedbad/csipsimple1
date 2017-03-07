@@ -66,7 +66,7 @@ public class zrtp_state_info {
 
   public pj_str_t getCipher() {
     long cPtr = pjsuaJNI.zrtp_state_info_cipher_get(swigCPtr, this);
-    return (cPtr == 0) ? null : new pj_str_t(cPtr, false);
+    return (cPtr == 0) ? null : new pj_str_t(cPtr, true);
   }
 
   public void setSas_verified(int value) {

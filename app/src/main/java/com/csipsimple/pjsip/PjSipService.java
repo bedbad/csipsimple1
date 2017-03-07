@@ -212,7 +212,7 @@ public class PjSipService {
             int status;
             status = pjsua.create();
 
-            Log.i(THIS_FILE, "Created " + status);
+            Log.e(THIS_FILE, "Created " + status);
             // General config
             {
                 pj_str_t[] stunServers = null;
@@ -249,7 +249,7 @@ public class PjSipService {
                 pjsua.setCallbackObject(userAgentReceiver);
                 pjsua.setZrtpCallbackObject(zrtpReceiver);
 
-                Log.d(THIS_FILE, "Attach is done to callback");
+                Log.e(THIS_FILE, "Attach is done to callback");
 
                 // CSS CONFIG
                 pjsua.csipsimple_config_default(cssCfg);
@@ -348,7 +348,7 @@ public class PjSipService {
                     if (videoPlugins.size() > 0) {
                         DynCodecInfos videoPlugin = videoPlugins.values().iterator().next();
                         pj_str_t pjVideoFile = pjsua.pj_str_copy(videoPlugin.libraryPath);
-                        Log.d(THIS_FILE, "Load video plugin at " + videoPlugin.libraryPath);
+                        Log.e(THIS_FILE, "Load video plugin at " + videoPlugin.libraryPath);
                         // Render
                         {
                             dynamic_factory vidImpl = cssCfg.getVideo_render_implementation();

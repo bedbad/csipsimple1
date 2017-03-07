@@ -310,6 +310,13 @@ public class SipNotifications {
 		CharSequence tickerText = context.getText(R.string.ongoing_call);
 		long when = System.currentTimeMillis();
 
+        //---------------------------------------------------------------------------------------------
+        /*!!IA!!
+         * Do someting with the cipher of the new call, stored in session. here, for example, log
+         */
+        Log.e(THIS_FILE, "ZRTP Cipher of the new call: "+callInfo.getClass()+" "+callInfo.zrtpcipher);
+        //---------------------------------------------------------------------------------------------
+
 		if(inCallNotification == null) {
 		    inCallNotification = new NotificationCompat.Builder(context);
 		    inCallNotification.setSmallIcon(icon);
