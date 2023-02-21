@@ -1,11 +1,6 @@
 # CSipSimple
 CSipSimple is an open-source native SIP client for Android
 
-See http://www.csipsimple.com for more info
-
-Copyright (C) 2009-2010 Regis Montoya (http://www.r3gis.fr)
-Copyright (C) 2010 Robert B. Denny, Mesa, AZ, USA (rdenny@dc3.com)
-
 This file is part of CSipSimple
 
 
